@@ -1,0 +1,14 @@
+<?php
+include_once('functions.php');
+
+if (!defined('ROOT')){
+
+    define('ROOT', 'http://'.$_SERVER['HTTP_HOST'].getFolderProyect()); //**AQUI TENGO DUDA SI LA VARIABLE DEBE PONERSE ROOT COMO EN EL VIDEO, O DEBE PONERSE COMO ES MI NOMBRE DE USUARIO DE MYPHP PERO MAYUSCULA, QUE EN ESE CASO SERIA ROOT@LOCALHOST. AUN ASI FUNCIONO BIEN AL IMPRIMIR EL SERVER **//
+    
+}
+
+
+
+  
+?>
+
