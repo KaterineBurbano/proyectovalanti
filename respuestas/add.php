@@ -5,8 +5,8 @@ include_once('../config/config.php');
 include_once('cuestionario.php');
 
 if ( isset($_POST) && !empty($_POST) ) {
-    $p = cuestionario();
-}
+    $p = new cuestionario();
+
 
 $save = $p->save($_POST);
 if ($save){
@@ -15,7 +15,7 @@ if ($save){
     $mensaje = '<div class = "alert alert-danger"  > Error al registrar </div>';
 }
 
-
+}
 
 ?>
 

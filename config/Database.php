@@ -1,26 +1,30 @@
 <?php
 
+
 class Database{
-public $host = '127.0.0.1'; //Servidor - en el ejemplo del video aparece como localhost
-public $user = 'root@localhost'; //Usuario de phpMyadmin - en el ejemplo del video aparece como root
-public $pass = ''; // Contraseña de phpMyadmin
-public $db = 'valanti' //Base de datos
-public $conexion;
+    public $host = 'localhost'; /* SERVIDOR */
+    public $user = 'root'; /* USUARIO DE PHPMYADMIN */
+    public $pass = '';  /* CONTRASEÑA PHPMYADMIN */
+    public $db = 'valanti'; /* NOMBRE DE MI BASE DE DATOS */
+    private $conexion; /* CONEXION DE MI BD PRIVADA */
 
-function connectToDatabase(){
-    $this->conexion = mysqli_connect(  $this->host,$this->user,$this->pass, $this->db);
-
-    if (mysqli_connect_error() ){
-        echo ' Error de conexión '. mysqli_connect_error();
+    function __construct(){
+        $this->conexion = $this->connectToDatabase(); /* Asignamos la funcion de conexion */
+        return $this -> conexion; /* Me activa la conexion */
     }
 
-    return $this->conexion;
+    function connectToDatabase(){
+        $conexion= mysqli_connect($this->host, $this->user, $this->pass, $this->db);
 
+        if(mysqli_connect_error()){ /* Si hay un error que me lo muestre */
+            echo "Tenemos un error de conexion " . mysqli_connect_error();
+        }
+        return $conexion; /* Me activa la conexion */
+    }
 }
 
 
 
-}
 
 
 
